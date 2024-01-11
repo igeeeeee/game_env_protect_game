@@ -2,7 +2,7 @@ class HP_gauge {
   constructor(_x,_y,_xsiz,_ysiz){
     this.maxhp = 100;
     this.hp = this.maxhp;
-    this.delta_hp =  1;//変化量
+    this.delta_hp =  0.2;//変化量
     this.x = _x;this.y = _y;this.xsiz = _xsiz;this.ysiz = _ysiz;
   }
 
@@ -139,7 +139,7 @@ class Field extends Land{
     this.maxlevel = 3;
     //収穫(コインを増やす用)
     this.harvestpoint = 0;
-    this.harvestable = 100;
+    this.harvestable = 500;
   }
 
   stateupdate(){
@@ -278,6 +278,7 @@ function mouseaction(){
 function mousePressed(){
   mouseaction();
 }
+
 function draw(){
   background(100);
   drawlands_and_update_status();
