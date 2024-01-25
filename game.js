@@ -1,3 +1,7 @@
+let coinimg;
+function preload(){
+  coinimg = loadImage('gamecoin.png');
+}
 class HP_gauge {
   constructor(_x,_y,_xsiz,_ysiz){
     this.maxhp = 100;
@@ -62,7 +66,8 @@ class Coins{
   draw(){
     for(let i = 0;i < this.coincnt;i++){
       fill(255,230,0);
-      circle(this.x ,this.y - (this.d + 3)*i,this.d);
+      // circle(this.x ,this.y - (this.d + 3)*i,this.d);
+      image(coinimg,this.x,this.y - (this.d + 3)*i,this.d,this.d);
     }
   }
 }
@@ -163,6 +168,8 @@ let landxsiz = 0,landysiz = 0;
 let lands = [];//土地情報
 let hp,oxgen,coins;
 let isfinish = false;
+
+
 
 function setup(){
   canvas = createCanvas(800, 400);
@@ -330,7 +337,6 @@ function draw(){
     fill(255)
     textSize(30);
     text("Restart", width/2, height/2 + 85);
-
 
   }else{
     drawlands_and_update_status();
